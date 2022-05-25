@@ -3,6 +3,8 @@ package com.example.dddshopping.order;
 import java.util.List;
 
 public class Order {
+    private String orderNumber;
+
     private List<OrderLine> orderLines;
     private int totalAmount;
 
