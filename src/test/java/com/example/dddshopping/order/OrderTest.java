@@ -40,4 +40,15 @@ class OrderTest {
         // order 과 order1 은 같은 주문으로 봐야하는 건가? 아니다. 주문 금액, 내용, 모두가 같더라도 엔티티는 엔티티 객체마다 고유하다. 따라서 order 과 order1 은 서로 다르다.
         assertThat(order).isNotEqualTo(order1);
     }
+
+    @Test
+    void 해시코드테스트(){
+        List<OrderLine> orderLines = List.of(new OrderLine(new Product(), 100, 1));
+        ShippingInfo shippingInfo = new ShippingInfo();
+        Order order = new Order(orderLines, shippingInfo);
+        Order order1 = new Order(orderLines, shippingInfo);
+
+        System.out.println(order.hashCode());
+        System.out.println(order1.hashCode());
+    }
 }
